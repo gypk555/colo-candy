@@ -21,21 +21,21 @@ app.use(bodyParser.json());
 //   credentials: true, // Allow cookies
 // }));
 
-const allowedOrigins = [
-  "http://localhost:3000",  // Allow local development
+//const allowedOrigins = [
+  //"http://localhost:3000",  // Allow local development
   // "http://192.168.104.11:3000", // Allow access from local network
-];
+//];
 
-app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true,
-}));
+//app.use(cors({
+  //origin: function (origin, callback) {
+    //if (!origin || allowedOrigins.includes(origin)) {
+      //callback(null, true);
+    //} else {
+      //callback(new Error("Not allowed by CORS"));
+    //}
+  //},
+  //credentials: true,
+//}));
 
 // const PgSessionStore = pgSession(session);
 // Configure session middleware
