@@ -15,6 +15,18 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.json());
 
+app.use((req, res, next) => {
+  // Allow requests from colo-candy.onrender.com
+  res.setHeader('Access-Control-Allow-Origin', 'https://colo-candy.onrender.com');
+  // Allow common request methods
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  // Allow common request headers
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  // Set credentials to true to support cookies
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
+
 // Configure CORS to allow credentials
 // app.use(cors({
 //   origin: "http://192.168.1.28:3000", // Update to frontend URL if different
